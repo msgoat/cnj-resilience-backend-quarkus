@@ -1,0 +1,29 @@
+# docker-compose.yml
+# ----------------------------------------------------------------------------
+# Composes Docker containers and volumes to a runnable Java EE application
+# ----------------------------------------------------------------------------
+#
+---
+version: '3'
+
+services:
+
+  downstream-a:
+    image: docker.cloudtrain.aws.msgoat.eu/cloudtrain/cnj-resilience-downstream-a:latest
+
+  downstream-b:
+    image: docker.cloudtrain.aws.msgoat.eu/cloudtrain/cnj-resilience-downstream-b:latest
+
+
+  backend:
+    image: ${docker.image.name}:${project.version}
+    ports:
+      - "38080:8080"
+      - "38089:8089"
+    environment:
+      QUARKUS_PROFILE: dev
+      DOCKER_JAVA_OPTS: -Xms2g -Xmx2g
+      JAVA_OPTS: "-javaagent:/home/quarkus/org.jacoco.agent.jar=output=tcpserver,address=*,port=8089"
+      CLOUDTRAIN_SERVICES_RECOMMENDATIONS_MP_REST_URL: "http://downstream-a:8080"
+      CLOUDTRAIN_SERVICES_WATCHLIST_MP_REST_URL: "http://downstream-b:8080"
+      CLOUDTRAIN_COMMON_REST_TRACE_ENABLED: "true"
