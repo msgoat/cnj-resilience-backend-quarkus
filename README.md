@@ -1,11 +1,12 @@
 # cnj-resilience-backend-quarkus
 
 Simple cloud native java application based on Quarkus demonstrating the application of resilience patterns
+with [MicroProfile Fault Tolerance](https://quarkus.pro/guides/microprofile-fault-tolerance.html) 
 when calls to downstream services are failing.
 
 ## Status
 
-![Build status](https://drone.cloudtrain.msgoat.eu/api/badges/msgoat/cnj-resilience-backend-quarkus/status.svg)
+[![Build Status](https://drone.cloudtrain.aws.msgoat.eu/api/badges/msgoat/cnj-resilience-backend-quarkus/status.svg)](https://drone.cloudtrain.aws.msgoat.eu/msgoat/cnj-resilience-backend-quarkus)
 
 ## Release information
 
