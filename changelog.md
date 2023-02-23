@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2023-02-23
+### Changed
+- upgraded to Java 17
+- upgraded to Quarkus 2.16.3
+- consolidated with hello world use case
+
 ## [1.1.0] - 2022-09-09
 ### Added
 ### Changed

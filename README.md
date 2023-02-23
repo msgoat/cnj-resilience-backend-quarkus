@@ -6,7 +6,7 @@ when calls to downstream services are failing.
 
 ## Status
 
-[![Build Status](https://drone.cloudtrain.aws.msgoat.eu/api/badges/msgoat/cnj-resilience-backend-quarkus/status.svg)](https://drone.cloudtrain.aws.msgoat.eu/msgoat/cnj-resilience-backend-quarkus)
+![Build Status](https://codebuild.eu-west-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiWU4wSjF2K2Q4bllnWDZtMkN0ZlNhTHFxMzZib3c1b0FxbURGdDRhMHNEbUUzaWxmdVl0Y1lHd0RCL2UvYkVJN1FiOGx1UTZQNlpISGpzOFN4VjdmZUljPSIsIml2UGFyYW1ldGVyU3BlYyI6IldZRWZVYkt3OXdnM2lqVm4iLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
 
 ## Release information
 
