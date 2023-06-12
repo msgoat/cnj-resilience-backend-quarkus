@@ -6,9 +6,9 @@ import group.msg.at.cloud.cloudtrain.core.control.ResilientWatchListCollector;
 import group.msg.at.cloud.cloudtrain.core.control.WatchListCollector;
 import group.msg.at.cloud.cloudtrain.core.entity.WelcomeItems;
 
-import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 /**
  * Simple {@code Boundary} that returns welcome messages.

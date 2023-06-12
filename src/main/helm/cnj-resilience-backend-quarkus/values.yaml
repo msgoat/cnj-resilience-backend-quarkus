@@ -19,7 +19,7 @@ container:
     image:
       repository: ${docker.image.name}
       tag: ${project.version}
-      pullPolicy: Always # IfNotPresent
+      pullPolicy: IfNotPresent
     ports:
       http:
         number: 8080
@@ -32,10 +32,10 @@ container:
       limits:
         # since JVMs tend to spike during startup we don't provide a cpu limit
         # cpu: 500m
-        memory: 2Gi
+        memory: 1Gi
       requests:
         cpu: 250m
-        memory: 2Gi
+        memory: 1Gi
     securityContext:
       capabilities:
         drop:
@@ -51,8 +51,8 @@ service:
 
 ingress:
   enabled: true
-  class: traefik
-  type: traefik
+  class: nginx
+  type: nginx
   host: "${k8s.ingress.host}"
   path: "${k8s.ingress.path}"
   pathType: Prefix
@@ -82,22 +82,12 @@ podDisruptionBudget:
   minUnavailable: 1
   # minAvailable: 1
 
-# security configuration (Open ID Connect)
-security:
-  oidc:
-    jwksUri: "https://oidc.cloudtrain.aws.msgoat.eu/auth/realms/cloudtrain/protocol/openid-connect/certs"
-    issuer: "https://oidc.cloudtrain.aws.msgoat.eu/auth/realms/cloudtrain"
-
 cloudtrain:
   services:
     recommendations:
       url: "http://cnj-resilience-downstream-a"
     watchlist:
       url: "http://cnj-resilience-downstream-b"
-  common:
-    rest:
-      trace:
-        enabled: true
 
 # metrics configuration
 metrics:
@@ -108,12 +98,3 @@ metrics:
   serviceMonitor:
     # installs a prometheus-operator service monitor CRD when true
     enabled: true
-
-# tracing configuration
-tracing:
-  enabled: true
-  jaeger:
-    agent:
-      host: jaeger-agent.tracing
-      port: 6831
-    logSpans: false
